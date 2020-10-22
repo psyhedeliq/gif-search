@@ -8,15 +8,24 @@
 
   async function formSubmitted(event) {
     loading = true;
+    gifs = [];
     const url = `${API_URL}${search}`;
     const response = await fetch(url);
     const json = await response.json();
     gifs = json.data.map((gif) => gif.images.fixed_height.url);
-    console.log(gifs);
+    loading = false;
   }
 </script>
 
 <style>
+  .results {
+    column-count: 3;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 </style>
 
 <form on:submit|preventDefault={formSubmitted}>
@@ -30,3 +39,7 @@
     src="https://media.giphy.com/media/3y0oCOkdKKRi0/giphy.gif"
     alt="Elmer Runnig Circles" />
 {/if}
+
+<div class="results">
+  {#each gifs as gif}<img src={gif} alt="GIF" />{/each}
+</div>
