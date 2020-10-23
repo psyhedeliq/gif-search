@@ -29,8 +29,7 @@
 </style>
 
 <form on:submit|preventDefault={formSubmitted}>
-  <label style="margin-bottom:1em;" for="search">Search for your favourite
-    GIF's!</label>
+  <label style="margin-bottom:1em;" for="search">Search for your favorite GIF's!</label>
   <input bind:value={search} id="search" name="search" />
   <button type="submit">Submit</button>
 </form>
