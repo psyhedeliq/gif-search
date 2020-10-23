@@ -29,15 +29,16 @@
 </style>
 
 <form on:submit|preventDefault={formSubmitted}>
-  <label for="search">Search</label>
+  <label style="margin-bottom:1em;" for="search">Search for your favourite
+    GIF's!</label>
   <input bind:value={search} id="search" name="search" />
   <button type="submit">Submit</button>
 </form>
 
 {#if loading}
   <img
-    src="https://media.giphy.com/media/3y0oCOkdKKRi0/giphy.gif"
-    alt="Elmer Runnig Circles" />
+    src="https://media.giphy.com/media/3AMRa6DRUhMli/giphy.gif"
+    alt="Loading" />
 {/if}
 
 <div class="results">
